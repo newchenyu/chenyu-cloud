@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chenyu.cloud.cloudapi.dao.SSLInfoMapper">
+    <resultMap id="BaseSSLInfo" type="com.chenyu.cloud.cloudapi.entity.SSLInfo">
+        <result column="public_key" jdbcType="VARCHAR" property="publicKey"></result>
+        <result column="private_key" jdbcType="VARCHAR" property="privateKey"></result>
+    </resultMap>
+
+    <select id="findBySSLId" resultMap="BaseSSLInfo">
+        select * from ssl_info where ssl_id = #{sslId} and is_delete = 0
+    </select>
+</mapper>
